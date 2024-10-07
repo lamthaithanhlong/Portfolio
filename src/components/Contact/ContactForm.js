@@ -30,7 +30,7 @@ const ContactForm = () => {
     setSuccessMessage('');
     setErrorMessage('');
 
-    const url = 'https://idpfrvh5w3.execute-api.us-east-1.amazonaws.com/prod/submit';
+    const url = 'https://yg5o2nfvgh.execute-api.us-east-1.amazonaws.com/prod/submit';
 
     try {
       const response = await axios.post(url, formData, {
