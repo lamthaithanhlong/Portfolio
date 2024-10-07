@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { get, post, put, del } from 'aws-amplify/api';
+import axios from 'axios';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 
 const ContactForm = () => {
@@ -29,8 +30,15 @@ const ContactForm = () => {
     setSuccessMessage('');
     setErrorMessage('');
 
+    const url = 'https://idpfrvh5w3.execute-api.us-east-1.amazonaws.com/prod/submit';
+
     try {
-      const response = await post('/contact', { body: formData });
+      const response = await axios.post(url, formData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      console.log('Response:', response.data);
       setSuccessMessage('Form submitted successfully!');
       setFormData({ guestName: '', email: '', phone: '', messageTitle: '', message: '' });
     } catch (error) {

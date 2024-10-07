@@ -14,6 +14,9 @@
     "categories": {
       "function": {
         "ContactFormProcessor": {}
+      },
+      "auth": {
+        "portfolio": {}
       }
     }
   }
