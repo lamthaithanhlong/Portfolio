@@ -46,6 +46,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ],
-    "proxy": "https://idpfrvh5w3.execute-api.us-east-1.amazonaws.com"
+    "proxy": "https://api.longltt-portfolio.com"
   }
 }

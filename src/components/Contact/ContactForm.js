@@ -30,7 +30,7 @@ const ContactForm = () => {
     setSuccessMessage('');
     setErrorMessage('');
 
-    const url = 'https://api.longltt-portfolio.com/submit';
+    const url = '/submit';
 
     try {
       const response = await axios.post(url, formData, {
