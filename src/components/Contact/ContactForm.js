@@ -30,12 +30,13 @@ const ContactForm = () => {
     setSuccessMessage('');
     setErrorMessage('');
 
-    const url = 'https://9v7rfz5laf.execute-api.us-east-1.amazonaws.com/prod/submit';
+    const url = 'https://api.longltt-portfolio.com/submit';
 
     try {
       const response = await axios.post(url, formData, {
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
         }
       });
       console.log('Response:', response.data);
