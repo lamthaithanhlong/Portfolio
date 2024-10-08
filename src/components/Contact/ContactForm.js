@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { get, post, put, del } from 'aws-amplify/api';
 import axios from 'axios';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 
@@ -30,20 +29,19 @@ const ContactForm = () => {
     setSuccessMessage('');
     setErrorMessage('');
 
-    const url = '/submit';
+    const url = 'https://api.longltt-portfolio.com/submit';
 
     try {
       const response = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
         }
       });
       console.log('Response:', response.data);
       setSuccessMessage('Form submitted successfully!');
       setFormData({ guestName: '', email: '', phone: '', messageTitle: '', message: '' });
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error submitting form:', error.response ? error.response.data : error.message);
       setErrorMessage('Failed to submit the form. Please try again.');
     } finally {
       setLoading(false);
