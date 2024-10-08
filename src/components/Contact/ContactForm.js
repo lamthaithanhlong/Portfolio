@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 
 // Define your API base URL
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '/api';
+const API_BASE_URL = 'api.'+ process.env.REACT_APP_API_BASE_URL;
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
