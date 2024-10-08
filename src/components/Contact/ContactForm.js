@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 
 const ContactForm = () => {
@@ -23,31 +22,38 @@ const ContactForm = () => {
     });
   };
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      setLoading(true);
-      setSuccessMessage('');
-      setErrorMessage('');
-    
-      const url = 'https://api.longltt-portfolio.com/submit';
-    
-      try {
-        const response = await axios.post(url, formData, {
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        });
-        console.log('Response:', response.data);
-        setSuccessMessage('Form submitted successfully!');
-        setFormData({ guestName: '', email: '', phone: '', messageTitle: '', message: '' });
-      } catch (error) {
-        console.error('Error submitting form:', error);
-        setErrorMessage('Failed to submit the form. Please try again.');
-      } finally {
-        setLoading(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccessMessage('');
+    setErrorMessage('');
+
+    const url = 'https://api.longltt-portfolio.com/submit';
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
-    };
-  
+
+      const data = await response.json();
+      console.log('Response:', data);
+      setSuccessMessage('Form submitted successfully!');
+      setFormData({ guestName: '', email: '', phone: '', messageTitle: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrorMessage('Failed to submit the form. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <Container className="contact-form-container mt-5">
