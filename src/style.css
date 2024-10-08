@@ -741,3 +741,44 @@ button:focus {
 .fork-btn-inner::after {
   display: none !important;
 }
+
+/* Contact Form Styles */
+.contact-form-container {
+  background-color: rgba(17, 16, 16, 0.582);
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 50px;
+  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459);
+}
+
+.contact-form-container h2,
+.contact-form-container label {
+  color: white !important;
+}
+
+.contact-form-input {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+}
+
+.contact-form-input:focus {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: #c770f0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(199, 112, 240, 0.25) !important;
+  color: white !important;
+}
+
+.contact-form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.btn-primary {
+  background-color: #c770f0 !important;
+  border-color: #c770f0 !important;
+}
+
+.btn-primary:hover {
+  background-color: #a24dd3 !important;
+  border-color: #a24dd3 !important;
+}

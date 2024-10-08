@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 
-// Define your API base URL
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '/api';
-
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     guestName: '',
@@ -39,7 +36,7 @@ const ContactForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        withCredentials: true, // This is important for CORS with credentials
+        withCredentials: true,
       });
       console.log('Response:', response.data);
       setSuccessMessage('Form submitted successfully!');
@@ -53,8 +50,8 @@ const ContactForm = () => {
   };
 
   return (
-    <Container className="mt-5">
-      <h2>Contact Us</h2>
+    <Container className="contact-form-container mt-5">
+      <h2 className="text-white mb-4">Contact Us</h2>
       {successMessage && <Alert variant="success">{successMessage}</Alert>}
       {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
       <Form onSubmit={handleSubmit}>
