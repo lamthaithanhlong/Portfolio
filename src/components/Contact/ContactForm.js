@@ -29,7 +29,7 @@ const ContactForm = () => {
     setSuccessMessage('');
     setErrorMessage('');
 
-    const url = 'https://bvs599zr62.execute-api.us-east-1.amazonaws.com/prod/submit';
+    const url = 'https://api.longltt-portfolio.com/submit';
 
     try {
       const response = await axios.post(url, formData, {
