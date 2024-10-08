@@ -23,31 +23,31 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccessMessage('');
-    setErrorMessage('');
-
-    const url = 'https://api.longltt-portfolio.com/submit';
-
-    try {
-      const response = await axios.post(url, formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        withCredentials: true,
-      });
-      console.log('Response:', response.data);
-      setSuccessMessage('Form submitted successfully!');
-      setFormData({ guestName: '', email: '', phone: '', messageTitle: '', message: '' });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setErrorMessage('Failed to submit the form. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      setSuccessMessage('');
+      setErrorMessage('');
+    
+      const url = 'https://api.longltt-portfolio.com/submit';
+    
+      try {
+        const response = await axios.post(url, formData, {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
+        console.log('Response:', response.data);
+        setSuccessMessage('Form submitted successfully!');
+        setFormData({ guestName: '', email: '', phone: '', messageTitle: '', message: '' });
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        setErrorMessage('Failed to submit the form. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    };
+  
 
   return (
     <Container className="contact-form-container mt-5">
