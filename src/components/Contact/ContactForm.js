@@ -35,8 +35,8 @@ const ContactForm = () => {
       const response = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        }
+        },
+        withCredentials: true, // This is important for CORS with credentials
       });
       console.log('Response:', response.data);
       setSuccessMessage('Form submitted successfully!');
