@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 
+// Define your API base URL
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '/api';
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     guestName: '',
@@ -29,10 +32,8 @@ const ContactForm = () => {
     setSuccessMessage('');
     setErrorMessage('');
 
-    const url = 'https://api.longltt-portfolio.com/submit';
-
     try {
-      const response = await axios.post(url, formData, {
+      const response = await axios.post(`${API_BASE_URL}/submit`, formData, {
         headers: {
           'Content-Type': 'application/json',
         },
