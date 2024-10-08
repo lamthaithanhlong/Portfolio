@@ -23,8 +23,9 @@ exports.handler = async (event) => {
             statusCode: 200,
             body: JSON.stringify({ message: 'Email sent successfully' }),
             headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': '*'
+                'Access-Control-Allow-Origin': 'https://www.longltt-portfolio.com',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'OPTIONS,POST'
             }
         };
     } catch (error) {
@@ -33,8 +34,9 @@ exports.handler = async (event) => {
             statusCode: 500,
             body: JSON.stringify({ message: 'Error sending email' }),
             headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': '*'
+                'Access-Control-Allow-Origin': 'https://www.longltt-portfolio.com',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'OPTIONS,POST'
             }
         };
     }

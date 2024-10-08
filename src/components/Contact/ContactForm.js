@@ -35,13 +35,14 @@ const ContactForm = () => {
       const response = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
         }
       });
       console.log('Response:', response.data);
       setSuccessMessage('Form submitted successfully!');
       setFormData({ guestName: '', email: '', phone: '', messageTitle: '', message: '' });
     } catch (error) {
-      console.error('Error submitting form:', error.response ? error.response.data : error.message);
+      console.error('Error submitting form:', error);
       setErrorMessage('Failed to submit the form. Please try again.');
     } finally {
       setLoading(false);

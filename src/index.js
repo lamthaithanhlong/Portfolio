@@ -10,7 +10,7 @@ Amplify.configure({
     endpoints: [
       {
         name: "ContactFormAPI",
-        endpoint: "https://dr9mltdu6b.execute-api.us-east-1.amazonaws.com/prod"
+        endpoint: "https://api.longltt-portfolio.com"
       },
     ]
   }
