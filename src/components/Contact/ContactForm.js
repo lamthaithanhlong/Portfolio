@@ -35,13 +35,9 @@ const ContactForm = () => {
       const response = await axios.post(url, urlEncodedData, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          'Access-Control-Allow-Headers': 'Content-Type,x-api-key,Authorization',
-          'Access-Control-Allow-Methods': 'OPTIONS,POST',
-          'Access-Control-Allow-Origin': "*"
         },
-        withCredentials: true,
       });
-      console.log('Response:', response.data);
+      console.log('Response:', response.status == 200); 
       setSuccessMessage('Form submitted successfully!');
       setFormData({ guestName: '', email: '', phone: '', messageTitle: '', message: '' });
     } catch (error) {
