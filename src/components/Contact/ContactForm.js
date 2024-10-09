@@ -36,7 +36,8 @@ const ContactForm = () => {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Access-Control-Allow-Headers': 'Content-Type,x-api-key,Authorization',
-          'Access-Control-Allow-Methods': 'OPTIONS,POST'
+          'Access-Control-Allow-Methods': 'OPTIONS,POST',
+          'Access-Control-Allow-Origin': "*"
         },
         withCredentials: true,
       });
