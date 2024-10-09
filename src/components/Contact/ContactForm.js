@@ -35,6 +35,8 @@ const ContactForm = () => {
       const response = await axios.post(url, urlEncodedData, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
+          'Access-Control-Allow-Headers': 'Content-Type,x-api-key,Authorization',
+          'Access-Control-Allow-Methods': 'OPTIONS,POST'
         },
         withCredentials: true,
       });
